@@ -1,35 +1,52 @@
 
-// Java Program to shuffle a given array
-import java.util.Random;
-import java.util.Arrays;
+// Java program to demonstrate shuffling of arraylist
+// elements Using Random class
 
+import java.util.*;
 public class fisherYates {
-    // A Function to generate a random permutation of arr[]
-    static void randomize(int arr[], int n) {
-        // Creating a object for Random class
-        Random r = new Random();
+	public static void main(String args[])
+	{
+		// creating
+		// ArrayList
+		ArrayList<Integer> al = new ArrayList<Integer>();
 
-        // Start from the last element and swap one by one. We don't
-        // need to run for the first element that's why i > 0
-        for (int i = n - 1; i > 0; i--) {
+		// adding object in ArrayList
+		al.add(10);
+		al.add(20);
+		al.add(30);
+		al.add(40);
+		al.add(50);
+		al.add(60);
+		al.add(70);
+		al.add(80);
 
-            // Pick a random index from 0 to i
-            int j = r.nextInt(i + 1);
+		System.out.println("Before shuffling Arraylist:");
 
-            // Swap arr[i] with the element at random index
-            int temp = arr[i];
-            arr[i] = arr[j];
-            arr[j] = temp;
-        }
-        // Prints the random array
-        System.out.println(Arrays.toString(arr));
-    }
+		// getting Iterator
+		// from arraylist to
+		// traverse elements
+		Iterator itr = al.iterator();
 
-    // Driver Program to test above function
-    public static void main(String[] args) {
+		while (itr.hasNext()) {
+			System.out.print(itr.next() + " ");
+		}
 
-        int[] arr = { 1, 2, 3, 4, 5, 6, 7, 8 };
-        int n = arr.length;
-        randomize(arr, n);
-    }
+		System.out.println("");
+
+		Random r1 = new Random();
+
+		for (int i = al.size() - 1; i >= 1; i--) {
+			// swapping current index value
+			// with random index value
+			Collections.swap(al, i, r1.nextInt(i + 1));
+		}
+
+		System.out.println("After shuffling Arraylist:");
+
+		itr = al.iterator();
+
+		while (itr.hasNext()) {
+			System.out.print(itr.next() + " ");
+		}
+	}
 }
