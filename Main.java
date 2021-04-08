@@ -13,7 +13,14 @@ public class Main {
             System.out.println(datos.get(x).toString());
         }
 
-        fisherYates(datos);
+        // fisherYates(datos);
+        cycleSort(datos, datos.size());
+
+        System.out.println("" + datos.size());
+        for (int x = 0; x < datos.size(); x++) {
+            System.out.println(datos.get(x).toString());
+        }
+
     }
 
     public static void setDatos(ArrayList<Datos> datos) {
@@ -26,7 +33,7 @@ public class Main {
         }
     }
 
-    static void fisherYates(ArrayList arrayList) {
+    static void fisherYates(ArrayList<Datos> arrayList) {
         Iterator itr = arrayList.iterator();
         System.out.println("");
 
@@ -45,4 +52,42 @@ public class Main {
         }
     }
 
+    public static void cycleSort(ArrayList<Datos> a, int n) {
+        int writes = 0, start, pos, i;
+        Datos element = new Datos();
+        Datos temp = new Datos();
+
+        for (start = 0; start <= n - 2; start++) {
+            element = a.get(start);
+            pos = start;
+            for (i = start + 1; i < n; i++)
+                if (a.get(i).getNumero() < element.getNumero())
+                    pos++;
+            if (pos == start)
+                continue;
+            while (element.getNumero() == a.get(pos).getNumero())
+                pos += 1;
+            if (pos != start) {
+                // swap(element, a[pos]);
+                temp = element;
+                element = a.get(pos);
+                a.set(pos, temp);
+                writes++;
+            }
+            while (pos != start) {
+                pos = start;
+                for (i = start + 1; i < n; i++)
+                    if (a.get(i).getNumero() < element.getNumero())
+                        pos += 1;
+                while (element.getNumero() == a.get(pos).getNumero())
+                    pos += 1;
+                if (element.getNumero() != a.get(pos).getNumero()) {
+                    temp = element;
+                    element = a.get(pos);
+                    a.set(pos, temp);
+                    writes++;
+                }
+            }
+        }
+    }
 }
