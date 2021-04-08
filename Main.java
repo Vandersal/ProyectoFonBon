@@ -13,7 +13,7 @@ public class Main {
             System.out.println(datos.get(x).toString());
         }
 
-        randomize(datos);
+        fisherYates(datos);
     }
 
     public static void setDatos(ArrayList<Datos> datos) {
@@ -26,39 +26,13 @@ public class Main {
         }
     }
 
-    static void randomize(ArrayList arrayList) {
-        // creating
-        // ArrayList
-        ArrayList<Integer> al = new ArrayList<Integer>();
-
-        // adding object in ArrayList
-        al.add(10);
-        al.add(20);
-        al.add(30);
-        al.add(40);
-        al.add(50);
-        al.add(60);
-        al.add(70);
-        al.add(80);
-
-        System.out.println("Before shuffling Arraylist:");
-
-        // getting Iterator
-        // from arraylist to
-        // traverse elements
+    static void fisherYates(ArrayList arrayList) {
         Iterator itr = arrayList.iterator();
-
-        while (itr.hasNext()) {
-            System.out.println(itr.next() + " ");
-        }
-
         System.out.println("");
 
         Random r1 = new Random();
 
         for (int i = arrayList.size() - 1; i >= 1; i--) {
-            // swapping current index value
-            // with random index value
             Collections.swap(arrayList, i, r1.nextInt(i + 1));
         }
 
@@ -70,4 +44,5 @@ public class Main {
             System.out.println(itr.next() + " ");
         }
     }
+
 }
