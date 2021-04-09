@@ -14,9 +14,8 @@ public class Main {
         }
 
         // fisherYates(datos);
-        //cycleSort(datos, datos.size());
+        // cycleSort(datos, datos.size());
 
-        System.out.println("" + datos.size());
         for (int x = 0; x < datos.size(); x++) {
             System.out.println(datos.get(x).toString());
         }
@@ -24,11 +23,15 @@ public class Main {
     }
 
     public static void setDatos(ArrayList<Datos> datos) {
+        String[] arrayLetras = { "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q",
+                "R", "S", "T", "U", "V", "W", "X", "Y", "Z" };
         Random r = new Random();
+        Random y = new Random();
         for (int x = 0; x < 10; x++) {
             int valorRandom = r.nextInt(10000);
+            int randomLetra = y.nextInt(27);
 
-            Datos ejemplo = new Datos(valorRandom, "a");
+            Datos ejemplo = new Datos(valorRandom, arrayLetras[randomLetra]);
             datos.add(ejemplo);
         }
     }
@@ -91,84 +94,46 @@ public class Main {
         }
     }
 
-
-/*
-    public static void mergeSort(ArrayList<Datos> arrayList){
-        Iterator itr = arrayList.iterator();
-        int itr[] = { 12, 11, 13, 5, 6, 7 };
-            System.out.println("Given Array"+itr);
-    
-            mergesort ob = new mergesort();
-            ob.sort(itr, 0, itr.length - 1);
-    
-            System.out.println("\nSorted array"+itr);
-            
-        int l, m, r;
-
-        {
-            int n1 = m - l + 1;
-            int n2 = r - m;
-    
-            int L[] = new int[n1];
-            int R[] = new int[n2];
-
-            for (int i = 0; i < n1; ++i)
-                L[i] = itr[l + i];
-            for (int j = 0; j < n2; ++j)
-                R[j] = itr[m + 1 + j];
-            
-            int i = 0, j = 0;
-    
-            int k = l;
-            while (i < n1 && j < n2) {
-                if (L[i] <= R[j]) {
-                    itr[k] = L[i];
-                    i++;
-                }
-                else {
-                    itr[k] = R[j];
-                    j++;
-                }
-                k++;
-            }
-         
-            while (i < n1) {
-                itr[k] = L[i];
-                i++;
-                k++;
-            }
-           
-            while (j < n2) {
-                itr[k] = R[j];
-                j++;
-                k++;
-            }
-        }
-    
-      void sort(int itr[], int l, int r)
-        {
-            if (l < r) {
-                
-                int m =l+ (r-l)/2;
-    
-               
-                sort(itr, l, m);
-                sort(itr, m + 1, r);
-    
-    
-                merge(itr, l, m, r);
-            }
-        }
-        static void printArray(int arr[])
-        {
-            int n = arr.length;
-            for (int i = 0; i < n; ++i)
-                System.out.print(arr[i] + " ");
-            System.out.println();
-        }
-    
-        
-    }
-    */
-
+    /*
+     * public static void mergeSort(ArrayList<Datos> arrayList){ Iterator itr =
+     * arrayList.iterator(); int itr[] = { 12, 11, 13, 5, 6, 7 };
+     * System.out.println("Given Array"+itr);
+     * 
+     * mergesort ob = new mergesort(); ob.sort(itr, 0, itr.length - 1);
+     * 
+     * System.out.println("\nSorted array"+itr);
+     * 
+     * int l, m, r;
+     * 
+     * { int n1 = m - l + 1; int n2 = r - m;
+     * 
+     * int L[] = new int[n1]; int R[] = new int[n2];
+     * 
+     * for (int i = 0; i < n1; ++i) L[i] = itr[l + i]; for (int j = 0; j < n2; ++j)
+     * R[j] = itr[m + 1 + j];
+     * 
+     * int i = 0, j = 0;
+     * 
+     * int k = l; while (i < n1 && j < n2) { if (L[i] <= R[j]) { itr[k] = L[i]; i++;
+     * } else { itr[k] = R[j]; j++; } k++; }
+     * 
+     * while (i < n1) { itr[k] = L[i]; i++; k++; }
+     * 
+     * while (j < n2) { itr[k] = R[j]; j++; k++; } }
+     * 
+     * void sort(int itr[], int l, int r) { if (l < r) {
+     * 
+     * int m =l+ (r-l)/2;
+     * 
+     * 
+     * sort(itr, l, m); sort(itr, m + 1, r);
+     * 
+     * 
+     * merge(itr, l, m, r); } } static void printArray(int arr[]) { int n =
+     * arr.length; for (int i = 0; i < n; ++i) System.out.print(arr[i] + " ");
+     * System.out.println(); }
+     * 
+     * 
+     * }
+     */
 }
