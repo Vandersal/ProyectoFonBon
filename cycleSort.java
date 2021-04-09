@@ -37,14 +37,14 @@ public static void sort(int a[], int n)
         }  
     }  
 }  
-public static void main(String[] args)  
-{  
-    int a[] = { 1, 9, 2, 4, 2, 10, 45, 3, 2 };  
-    int n = a.length,i;  
-    sort(a, n);  
-    System.out.println("After sort, array : ");  
-    for (i = 0; i < n; i++)  
-        System.out.println(a[i]);  
+    public static void main(String[] args)  {  
+        int a[] = { 1, 9, 2, 4, 2, 10, 45, 3, 2 };  
+        int n = a.length,i;  
+        sort(a, n);  
+        System.out.println("After sort, array : ");  
+        for (i = 0; i < n; i++)  
+            System.out.print(a[i] + ", ");  
+
       
-}  
+    }  
 }  
